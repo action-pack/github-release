@@ -1,5 +1,5 @@
-name: "Github Release"
-author: "Lars Gohr"
+name: "Github Release Action"
+author: "kroese"
 branding:
   icon: "git-branch"
   color: "gray-dark"
