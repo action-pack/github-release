@@ -26,7 +26,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        tag: ${{ github.sha }}
         title: ${{ github.sha }}
         body: ${{ github.sha }}
 
