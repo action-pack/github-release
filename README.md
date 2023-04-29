@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Release/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
 
-Creates a plain Github release, without attaching assets or source code.
+Creates a plain Github release.
 
 ## Usage
 
@@ -22,6 +22,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
+        tag: MyReleaseTag
         title: MyReleaseMessage
 ```
 
