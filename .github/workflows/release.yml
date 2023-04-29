@@ -10,11 +10,12 @@ on:
       - '**/*.md'
       - '.gitignore'
       - '.dockerignore'
+      - '.github/**'
+      - '.github/workflows/**'
 
 jobs:
   shellcheck:
     uses: ./.github/workflows/check.yml
-    
 
   integration-test:
     needs: shellcheck
@@ -28,9 +29,20 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        tag: v5
-        title: v5
-        body: Release v5
+        tag: "v${{ secrets.MINOR }}"
+        title: "v${{ secrets.MINOR }}"
+        body: "Release v${{ secrets.MINOR }}"
+    -
+      name: Increment minor version
+      run: echo "NEW_MINOR=$((${{ secrets.MINOR }}+1))" >> $GITHUB_ENV
+    -
+      name: Update minor version
+      uses: hmanzur/actions-set-secret@v2.0.0
+      with:
+        name: 'MINOR'
+        value: ${{ env.NEW_MINOR }}
+        repository: ${{ github.repository }}
+        token: ${{ secrets.RELEASE_TOKEN }}
         
   release:
     runs-on: ubuntu-latest
@@ -45,5 +57,5 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com 
-          git tag -fa v5 -m "Update v5 tag"
-          git push origin v5 --force
+          git tag -fa v${{ secrets.MINOR }} -m "Update v${{ secrets.MINOR }} tag"
+          git push origin v${{ secrets.MINOR }} --force
