@@ -7,9 +7,9 @@ if [ -z "${INPUT_TAG}" ]; then
 fi
 
 if [ -z "${INPUT_BODY}" ]; then
-  hub release create -m "${INPUT_TITLE}" "${INPUT_TAG}" 
+  INPUT_MSG="${INPUT_TITLE}"
 else
-  hub release create -m "${INPUT_TITLE}"\n\n"${INPUT_BODY}" "${INPUT_TAG}" 
+  INPUT_MSG="${INPUT_TITLE}\n\r${INPUT_BODY}"
 fi
 
-
+hub release create -m "${INPUT_MSG}" "${INPUT_TAG}" 
