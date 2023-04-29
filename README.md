@@ -32,9 +32,9 @@ jobs:
 
 ## Notes
 
-The ``title`` field is the release title. May not contain spaces. 
+The ``title`` field is the release title. 
 
-The ``body`` field is the release body. If not specified it will default to blank.
+The ``body`` field is the release message (optional).
 
 The ``tag`` field is the release tag. If not specified it will default to the current date.
 
