@@ -2,7 +2,7 @@
 name: Release
 on: 
   push:
-    branches: [ main ]
+    branches: [ master ]
     tags-ignore:
       - '*'
 
@@ -13,8 +13,8 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v3
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@main
+    - name: Create a release
+      uses: kroese/github-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
@@ -27,10 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.RELEASE_TOKEN }} # for pushing to protected branch
+          token: ${{ secrets.RELEASE_TOKEN }}
       - name: Publish new version
         run: |
-          git config --global user.email "no_reply@gohr.digital"
-          git config --global user.name "Release Bot"
           git tag -fa v4 -m "Update v4 tag"
           git push origin v4 --force
