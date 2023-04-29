@@ -11,5 +11,3 @@ if [ -z "${INPUT_BODY}" ]; then
 else
   hub release create -m "${INPUT_TITLE}" -m "${INPUT_BODY}" "${INPUT_TAG}" 
 fi
-
-
