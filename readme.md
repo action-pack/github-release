@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Create a release
-      uses: kroese/github-release@v4
+      uses: kroese/github-release@v5
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
