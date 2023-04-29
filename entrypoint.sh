@@ -9,7 +9,7 @@ fi
 if [ -z "${INPUT_BODY}" ]; then
   INPUT_MSG="${INPUT_TITLE}"
 else
-  INPUT_MSG="${INPUT_TITLE} ${INPUT_BODY}"
+  INPUT_MSG="${INPUT_TITLE}\n\n${INPUT_BODY}"
 fi
 
 hub release create -m "${INPUT_MSG}" "${INPUT_TAG}" 
