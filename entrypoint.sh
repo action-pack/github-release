@@ -1,6 +1,6 @@
-#!bin/bash
+#!/bin/sh
 
-INPUT_TITLE="${INPUT_TITLE// /}"
+INPUT_TITLE=$(tr -d ' ' <<< "$INPUT_TITLE")
 
 if [ -z "${INPUT_TAG}" ]; then
   INPUT_TAG="$(date +%Y%m%d%H%M%S)"
