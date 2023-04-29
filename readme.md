@@ -34,8 +34,8 @@ jobs:
 
 The ``title`` field is the release title. 
 
-The ``body`` field is the release message (optional).
+The ``tag`` field is the release tag (optional).
 
-The ``tag`` field is the release tag. If not specified it will default to the current date.
+The ``body`` field is the release message (optional).
 
 `${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
