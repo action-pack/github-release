@@ -26,6 +26,6 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com 
-          git tag -d $(git tag -l)
+          git tag -d $(git tag | head -n 999)
           git tag -fa v4 -m "Update v4 tag"
           git push origin v4 --force
