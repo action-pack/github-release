@@ -1,7 +1,6 @@
 #!bin/bash
 
 INPUT_TITLE="${INPUT_TITLE// /}"
-VM_NET_MAC="${VM_NET_MAC//-/:}"
 
 if [ -z "${INPUT_TAG}" ]; then
   INPUT_TAG="$(date +%Y%m%d%H%M%S)"
