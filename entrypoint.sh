@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INPUT_TITLE=${INPUT_TITLE//[[:blank:]]/}
+INPUT_TITLE=${INPUT_TITLE// /}
 
 if [ -z "${INPUT_TAG}" ]; then
   INPUT_TAG="$(date +%Y%m%d%H%M%S)"
