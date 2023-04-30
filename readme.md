@@ -38,4 +38,5 @@ The ``tag`` field is the release tag (optional).
 
 The ``body`` field is the release message (optional).
 
-`${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
+`${{ secrets.RELEASE_TOKEN }}` is the Repository [Access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+
