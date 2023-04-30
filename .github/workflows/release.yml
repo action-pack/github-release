@@ -61,7 +61,7 @@ jobs:
           name: 'MINOR'
           value: ${{ env.NEW_MINOR }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-     -
+      -
         name: Update major version variable
         uses: kroese/set-variable@v2
         with:
