@@ -1,6 +1,7 @@
 # github-release
 
 [![Actions Status](https://github.com/kroese/github-release/workflows/Release/badge.svg)](https://github.com/kroese/github-release/)
+[![Version](https://img.shields.io/github/v/tag/kroese/github-release?label=version&color=066497)](https://github.com/kroese/github-release/)
 
 Creates a Github release using a workflow action.
 
