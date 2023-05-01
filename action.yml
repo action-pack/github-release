@@ -3,7 +3,7 @@ author: "kroese"
 branding:
   icon: "git-branch"
   color: "gray-dark"
-description: "Publish Github releases from an action"
+description: "Action to create a Github release"
 
 inputs:
   tag:
