@@ -1,4 +1,4 @@
-name: "Create new release"
+name: "Action to create a Github release"
 author: "kroese"
 branding:
   icon: "git-branch"
