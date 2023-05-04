@@ -1,9 +1,9 @@
-name: "Action to create a Github release"
+name: "Github release"
 author: "kroese"
 branding:
   icon: "git-branch"
   color: "gray-dark"
-description: "Action to create a Github release"
+description: "Action to create a Github release."
 
 inputs:
   tag:
@@ -15,6 +15,9 @@ inputs:
   body:
     description: "The body of the release to publish"
     required: false
+  commit:
+    description: "The commit of the release to publish"
+    required: false
 
 runs:
   using: 'composite'
@@ -25,3 +28,4 @@ runs:
         INPUT_TAG: ${{ inputs.tag }}
         INPUT_TITLE: ${{ inputs.title }}
         INPUT_BODY: ${{ inputs.body }}
+        INPUT_COMMIT: ${{ inputs.commit }}
