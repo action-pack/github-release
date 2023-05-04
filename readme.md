@@ -40,6 +40,6 @@ The ``tag`` field is the release tag (optional).
 
 The ``body`` field is the release message (optional).
 
-The ``commit`` field is the hash of the commit (optional).
+The ``commit`` field is a commit SHA or branch name to attach the release to (optional).
 
 `${{ secrets.RELEASE_TOKEN }}` is the Repository [Access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
