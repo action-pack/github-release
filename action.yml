@@ -1,4 +1,4 @@
-name: "Github release"
+name: "Create new release"
 author: "kroese"
 branding:
   icon: "git-branch"
@@ -13,10 +13,10 @@ inputs:
     description: "The title of the release to publish"
     required: true
   body:
-    description: "The body of the release to publish"
+    description: "The message of the release to publish"
     required: false
   commit:
-    description: "The commit of the release to publish"
+    description: "A commit or branch name to attach the release to"
     required: false
 
 runs:
