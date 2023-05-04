@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Create a release
-      uses: kroese/github-release@v5
+      uses: kroese/github-release@v6
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
@@ -40,5 +40,6 @@ The ``tag`` field is the release tag (optional).
 
 The ``body`` field is the release message (optional).
 
-`${{ secrets.RELEASE_TOKEN }}` is the Repository [Access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+The ``commit`` field is the hash of the commit (optional).
 
+`${{ secrets.RELEASE_TOKEN }}` is the Repository [Access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
