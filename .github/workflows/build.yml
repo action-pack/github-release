@@ -12,6 +12,7 @@ on:
       - '.dockerignore'
       - '.github/**'
       - '.github/workflows/**'
+      - 'action.yml'
 
 jobs:
   shellcheck:
