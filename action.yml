@@ -1,7 +1,7 @@
 name: "Create new release"
 author: "kroese"
 branding:
-  icon: "git-branch"
+  icon: "tag"
   color: "gray-dark"
 description: "Action to create a Github release."
 
