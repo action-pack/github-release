@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 
