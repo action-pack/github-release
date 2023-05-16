@@ -1,7 +1,7 @@
 # github-release
 
 [![Build](https://github.com/action-pack/github-release/workflows/Build/badge.svg)](https://github.com/action-pack/github-release/)
-[![Version](https://img.shields.io/github/v/tag/action-pack/github-release?label=version&color=066da5)](https://github.com/action-pack/github-release/)
+[![Version](https://img.shields.io/github/v/tag/action-pack/github-release?label=version&color=066da5)](https://github.com/marketplace/actions/create-new-release)
 [![Size](https://img.shields.io/github/languages/code-size/action-pack/github-release?label=size&color=066da5)](https://github.com/action-pack/github-release/)
 
 Creates a Github release using a workflow action.
