@@ -33,9 +33,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        tag: "v${{ vars.MINOR }}"
-        title: "v${{ vars.MINOR }}"
-        body: "Release v${{ vars.MINOR }}"
+        tag: "v${{ vars.MAJOR }}.${{ vars.MINOR }}"
+        title: "v${{ vars.MAJOR }}.${{ vars.MINOR }}"
+        body: "Release v${{ vars.MAJOR }}.${{ vars.MINOR }}"
   
   release:
     name: Release
@@ -51,8 +51,8 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com 
-          git tag -fa v${{ vars.MINOR }} -m "Update v${{ vars.MINOR }} tag"
-          git push origin v${{ vars.MINOR }} --force
+          git tag -fa v${{ vars.MAJOR }}.${{ vars.MINOR }} -m "Update v${{ vars.MAJOR }}.${{ vars.MINOR }} tag"
+          git push origin v${{ vars.MAJOR }}.${{ vars.MINOR }} --force
       -
         name: Increment minor version
         uses: action-pack/increment@v2
