@@ -47,12 +47,15 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
-      - name: Publish new version
-        run: |
-          git config user.name kroese
-          git config user.email kroese@users.noreply.github.com 
-          git tag -fa v${{ vars.MAJOR }}.${{ vars.MINOR }} -m "Update v${{ vars.MAJOR }}.${{ vars.MINOR }} tag"
-          git push origin v${{ vars.MAJOR }}.${{ vars.MINOR }} --force
+      -
+        name: Update major release
+        uses: action-pack/github-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          tag: "v${{ vars.MAJOR }}"
+          title: "v${{ vars.MAJOR }}"
+          body: "Release v${{ vars.MAJOR }}"
       -
         name: Increment minor version
         uses: action-pack/increment@v2
