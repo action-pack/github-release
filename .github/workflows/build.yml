@@ -49,8 +49,8 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
       - name: Publish new version
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com 
+          git config user.name kroese
+          git config user.email kroese@users.noreply.github.com 
           git tag -fa v${{ vars.MAJOR }}.${{ vars.MINOR }} -m "Update v${{ vars.MAJOR }}.${{ vars.MINOR }} tag"
           git push origin v${{ vars.MAJOR }}.${{ vars.MINOR }} --force
       -
