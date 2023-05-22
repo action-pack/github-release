@@ -7,7 +7,7 @@ if [ -z "${INPUT_TAG}" ]; then
   INPUT_TAG="$(date +%Y%m%d%H%M%S)"
 fi
 
-{ gh release delete "${INPUT_TAG}" --cleanup-tag --yes; rc=$?; } || :
+{ gh release delete "${INPUT_TAG}" --cleanup-tag --yes; } || :
 
 if [ -z "${INPUT_COMMIT}" ]; then
   if [ -z "${INPUT_BODY}" ]; then
