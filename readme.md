@@ -38,7 +38,7 @@ The ``title`` field is the release title.
 
 The ``tag`` field is the release tag (optional).
 
-The ``body`` field is the release message (optional).
+The ``body`` field is the release notes (optional).
 
 The ``commit`` field is a commit or branch name to attach the release to (optional).
 
