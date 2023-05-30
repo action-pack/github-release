@@ -52,6 +52,8 @@ jobs:
     -
       name: Create a release
       uses: action-pack/github-release@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag: "v${{ vars.MAJOR }}.${{ vars.MINOR }}"
         title: "v${{ vars.MAJOR }}.${{ vars.MINOR }}"
@@ -74,6 +76,8 @@ jobs:
       -
         name: Update major release
         uses: action-pack/github-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag: "v${{ vars.MAJOR }}"
           title: "v${{ vars.MAJOR }}"
