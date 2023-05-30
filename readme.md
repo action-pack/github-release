@@ -24,6 +24,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Create a release
       uses: action-pack/github-release@v2
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag: MyReleaseTag
         title: MyReleaseTitle
