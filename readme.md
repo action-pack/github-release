@@ -25,7 +25,7 @@ jobs:
     - name: Create a release
       uses: action-pack/github-release@v2
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       with:
         tag: MyReleaseTag
         title: MyReleaseTitle
@@ -42,4 +42,4 @@ The ``body`` field is the release notes (optional).
 
 The ``commit`` field is a commit or branch name to attach the release to (optional).
 
-`${{ secrets.RELEASE_TOKEN }}` is the Repository [Access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+`${{ secrets.REPO_ACCESS_TOKEN }}` is the Repository [Access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
