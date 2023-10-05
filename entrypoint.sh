@@ -11,14 +11,14 @@ fi
 
 if [ -z "${INPUT_COMMIT}" ]; then
   if [ -z "${INPUT_BODY}" ]; then
-    hub release create -m "${INPUT_TITLE}" "${INPUT_TAG}" 
+    gh release create -t "${INPUT_TITLE}" "${INPUT_TAG}" --generate-notes
   else
-    hub release create -m "${INPUT_TITLE}" -m "${INPUT_BODY}" "${INPUT_TAG}" 
+    gh release create -t "${INPUT_TITLE}" -n "${INPUT_BODY}" "${INPUT_TAG}" 
   fi
 else
   if [ -z "${INPUT_BODY}" ]; then
-    hub release create -t "${INPUT_COMMIT}" -m "${INPUT_TITLE}" "${INPUT_TAG}" 
+    gh release create --target "${INPUT_COMMIT}" -t "${INPUT_TITLE}" "${INPUT_TAG}" --generate-notes
   else
-    hub release create -t "${INPUT_COMMIT}" -m "${INPUT_TITLE}" -m "${INPUT_BODY}" "${INPUT_TAG}" 
+    gh release create --target "${INPUT_COMMIT}" -t "${INPUT_TITLE}" -n "${INPUT_BODY}" "${INPUT_TAG}" 
   fi 
 fi
