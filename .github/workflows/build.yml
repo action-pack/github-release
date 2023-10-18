@@ -81,7 +81,6 @@ jobs:
         with:
           tag: "v${{ vars.MAJOR }}"
           title: "v${{ vars.MAJOR }}"
-          body: "See https://github.com/${{ github.repository }}/releases/tag/v${{ vars.MAJOR }}.${{ vars.MINOR }}"
       -
         name: Increment version variable
         uses: action-pack/bump@v2
