@@ -14,6 +14,7 @@ on:
       - '.github/**'
       - '.github/workflows/**'
       - 'action.yml'
+      - 'renovate.json'
 
 concurrency:
   group: build
