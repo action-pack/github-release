@@ -3,11 +3,11 @@ set -eu
 
 INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 
-if [ -z "${INPUT_TAG}" ]; then
+if [ -z "$INPUT_TAG" ]; then
   INPUT_TAG="$(date +%Y%m%d%H%M%S)"
 fi
 
-{ RESULT=$(gh release view $INPUT_TAG 2>&1); } || :
+{ RESULT=$(gh release view "$INPUT_TAG" 2>&1); } || :
 
 if [[ "$RESULT" != "release not found" ]]; then
   echo "Release does already exists:"
