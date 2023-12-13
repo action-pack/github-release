@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
@@ -11,7 +11,7 @@ fi
 
 if [[ "$RESULT" != "release not found" ]]; then
   echo "Release does already exists:"
-  echo $RESULT
+  echo "$RESULT"
   echo "Performing delete..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
   sleep 1
