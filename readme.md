@@ -49,7 +49,7 @@ The ``token`` input is the repository access token (optional), defaults to ```se
 
 ## FAQ
 
-  * ### Why do I get the error '*HTTP 403: Resource not accessible by integration*'?
+  * ### Why do I get the error '*Resource not accessible by integration*'?
 
     This can happen if the ```Workflow permissions``` in your repository settings ( Actions -> General ) are not set to the ```Read and write``` option.
 
