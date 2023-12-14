@@ -10,9 +10,7 @@ INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 if (( rc == 0 )); then
   echo "Release $INPUT_TAG does already exists, will be overwritten..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
-  sleep 1
-else
-  echo $rc
+  sleep 5
 fi
 
 if [ -z "${INPUT_COMMIT}" ]; then
