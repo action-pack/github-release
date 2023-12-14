@@ -27,8 +27,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Create a release
       uses: action-pack/github-release@v2
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag: MyReleaseTag
         title: MyReleaseTitle
@@ -44,3 +42,5 @@ The ``tag`` field is the release tag (optional).
 The ``body`` field is the release notes (optional).
 
 The ``commit`` field is a commit or branch name to attach the release to (optional).
+
+The ``token`` field is the repository access token (optional).
