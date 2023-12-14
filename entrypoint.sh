@@ -5,9 +5,9 @@ set -Eeuo pipefail
 INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 [ -z "$INPUT_TAG" ] && INPUT_TAG="$(date +%Y%m%d%H%M%S)"
 
-{ RESULT=$(gh release view "$INPUT_TAG" 2>&1); } || :
+{ result=$(gh release view "$INPUT_TAG"); rc=$?; } || :
 
-if [[ "$RESULT" == *"tag:/t$INPUT_TAG"* ]]; then
+if (( rc == 0 )); then
   echo "Release $INPUT_TAG does already exists, will be overwritten..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
   sleep 1
