@@ -35,12 +35,12 @@ jobs:
 
 ## Notes
 
-The ``title`` field is the release title. 
+The ``title`` input is the release name. 
 
-The ``tag`` field is the release tag (optional).
+The ``body`` input is the release notes (optional).
 
-The ``body`` field is the release notes (optional).
+The ``tag`` input is the tagname to be created for the release (optional).
 
-The ``commit`` field is a commit or branch name to attach the release to (optional).
+The ``commit`` input is a commit hash or branch name to attach the release to (optional).
 
-The ``token`` field is the repository access token (optional).
+The ``token`` input is the repository access token (optional), defaults to ```secrets.GITHUB_TOKEN```.
