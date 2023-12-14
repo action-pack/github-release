@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  echo "Setting token..."
+if [[ "${GITHUB_TOKEN:-}" ]]; then
   export GITHUB_TOKEN="$INPUT_TOKEN"
 fi
 
