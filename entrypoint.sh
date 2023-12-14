@@ -2,7 +2,10 @@
 set -Eeuo pipefail
 
 if [[ "${GITHUB_TOKEN:-}" ]]; then
-  export GITHUB_TOKEN="$INPUT_TOKEN"
+  export GH_TOKEN="$INPUT_TOKEN"
+  echo "export GH_TOKEN=$INPUT_TOKEN"
+else
+  export GH_TOKEN="$GITHUB_TOKEN"
 fi
 
 [ -z "$INPUT_TITLE" ] && INPUT_TITLE="Name"
