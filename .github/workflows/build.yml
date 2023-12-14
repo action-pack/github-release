@@ -44,8 +44,6 @@ jobs:
     -
       name: Create a release
       uses: action-pack/github-release@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       with:
         tag: "v${{ vars.MAJOR }}.${{ vars.MINOR }}"
         title: "v${{ vars.MAJOR }}.${{ vars.MINOR }}"
@@ -53,6 +51,7 @@ jobs:
           ${{ steps.changelog.outputs.changes }}
 
           **Full Changelog**: https://github.com/${{ github.repository }}/compare//${{ env.previousTag }}...v${{ vars.MAJOR }}.${{ vars.MINOR }}
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
     -
       name: Update major release
       uses: action-pack/github-release@master
