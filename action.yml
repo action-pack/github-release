@@ -6,17 +6,18 @@ branding:
 description: "Action to create a Github release."
 
 inputs:
-  tag:
-    description: "The tag of the release to publish"
-    required: false
   title:
-    description: "The title of the release to publish"
+    description: "The name of the release"
+    default: "Name"
     required: false
   body:
-    description: "The message of the release to publish"
+    description: "The notes for the release"
+    required: false
+  tag:
+    description: "The tagname for the release"
     required: false
   commit:
-    description: "A commit or branch name to attach the release to"
+    description: "A commit hash or branch name to attach the release to"
     required: false
   token:
     description: "Repository access token"
@@ -32,5 +33,5 @@ runs:
         INPUT_TAG: ${{ inputs.tag }}
         INPUT_TITLE: ${{ inputs.title }}
         INPUT_BODY: ${{ inputs.body }}
+        INPUT_TOKEN: ${{ inputs.token }}
         INPUT_COMMIT: ${{ inputs.commit }}
-        GITHUB_TOKEN: ${{ inputs.token }}
