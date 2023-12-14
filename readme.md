@@ -23,6 +23,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v3
     - name: Create a release
@@ -44,3 +46,17 @@ The ``tag`` input is the tagname to be created for the release (optional).
 The ``commit`` input is a commit hash or branch name to attach the release to (optional).
 
 The ``token`` input is the repository access token (optional), defaults to ```secrets.GITHUB_TOKEN```.
+
+## FAQ
+
+  * ### Why do I get the error '*HTTP 403: Resource not accessible by integration*'?
+
+    This can happen if the ```Workflow permissions``` in your repository settings ( Actions -> General ) are not set to the ```Read and write``` option.
+
+    Either change that setting or otherwise add the following lines to your workflow job:
+    
+    ```yaml
+    permissions:
+      contents: write
+    ```
+    
