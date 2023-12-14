@@ -18,6 +18,9 @@ inputs:
   commit:
     description: "A commit or branch name to attach the release to"
     required: false
+  token:
+    description: "Repository access token"
+    required: false
 
 runs:
   using: 'composite'
