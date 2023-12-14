@@ -7,7 +7,7 @@ INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 
 { RESULT=$(gh release view "$INPUT_TAG" 2>&1); } || :
 
-if [[ "$RESULT" != *"tag: $INPUT_TAG"* ]]; then
+if [[ "$RESULT" == *"tag: $INPUT_TAG"* ]]; then
   echo "Release $INPUT_TAG does already exists, will be overwritten..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
   sleep 1
