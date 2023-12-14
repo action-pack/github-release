@@ -2,7 +2,11 @@
 set -Eeuo pipefail
 
 if [ -z "${GITHUB_TOKEN:-}" ]; then
-  export GITHUB_TOKEN="$INPUT_TOKEN"
+  if [ -n "${INPUT_TOKEN:-}" ]; then
+    export GITHUB_TOKEN="$INPUT_TOKEN"
+  else
+    echo "The token input is not set!" && exit 1
+  fi
 fi
 
 [ -z "$INPUT_TITLE" ] && INPUT_TITLE="Name"
