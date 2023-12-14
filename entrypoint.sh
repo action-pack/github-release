@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 
 if [ -z "${GITHUB_TOKEN:-}" ]; then
-  if [ -n "${INPUT_TOKEN:-}" ]; then
+  if [ -n "$INPUT_TOKEN" ]; then
     export GITHUB_TOKEN="$INPUT_TOKEN"
   else
     echo "The token input is not set!" && exit 1
@@ -21,8 +21,8 @@ if (( rc == 0 )); then
   sleep 3
 fi
 
-if [ -z "${INPUT_COMMIT}" ]; then
-  if [ -z "${INPUT_BODY}" ]; then
+if [ -z "$INPUT_COMMIT" ]; then
+  if [ -z "$INPUT_BODY" ]; then
     gh release create -t "$INPUT_TITLE" "$INPUT_TAG" --generate-notes
   else
     gh release create -t "$INPUT_TITLE" -n "$INPUT_BODY" "$INPUT_TAG" 
