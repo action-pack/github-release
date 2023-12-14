@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-if [[ "${GITHUB_TOKEN:-}" ]]; then
-  export GH_TOKEN="$INPUT_TOKEN"
-  echo "export GH_TOKEN=$INPUT_TOKEN"
-else
-  export GH_TOKEN="$GITHUB_TOKEN"
+if [ -z "${GITHUB_TOKEN:-}" ]; then
+  export GITHUB_TOKEN="$INPUT_TOKEN"
 fi
 
 [ -z "$INPUT_TITLE" ] && INPUT_TITLE="Name"
@@ -17,7 +14,7 @@ INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 if (( rc == 0 )); then
   echo "Release $INPUT_TAG does already exists, will be overwritten..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
-  sleep 5
+  sleep 3
 fi
 
 if [ -z "${INPUT_COMMIT}" ]; then
