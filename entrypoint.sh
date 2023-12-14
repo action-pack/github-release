@@ -12,7 +12,7 @@ INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 { gh release view "$INPUT_TAG" >/dev/null 2>&1; rc=$?; } || :
 
 if (( rc == 0 )); then
-  echo "Release $INPUT_TAG does already exists, will be overwritten..."
+  echo "Release tag $INPUT_TAG does already exists, it will be replaced..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
   sleep 3
 fi
