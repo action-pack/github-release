@@ -1,18 +1,14 @@
-#!/bin/bash
-set -eu
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
+[ -z "$INPUT_TITLE" ] && INPUT_TITLE="Name"
 INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
-
-if [ -z "$INPUT_TAG" ]; then
-  INPUT_TAG="$(date +%Y%m%d%H%M%S)"
-fi
+[ -z "$INPUT_TAG" ] && INPUT_TAG="$(date +%Y%m%d%H%M%S)"
 
 { RESULT=$(gh release view "$INPUT_TAG" 2>&1); } || :
 
-if [[ "$RESULT" != "release not found" ]]; then
-  echo "Release does already exists:"
-  echo "$RESULT"
-  echo "Performing delete..."
+if [[ "$RESULT" != *"tag: $INPUT_TAG"* ]]; then
+  echo "Release $INPUT_TAG does already exists, will be overwritten..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
   sleep 1
 fi
