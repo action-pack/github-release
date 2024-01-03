@@ -26,7 +26,7 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Create a release
       uses: action-pack/github-release@v2
       with:
