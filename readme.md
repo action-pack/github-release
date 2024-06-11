@@ -9,7 +9,7 @@
 
 Creates a Github release using a workflow action.
 
-## Usage
+## Usage 🚀
 
 ```yaml
 name: Publish Release
@@ -35,7 +35,7 @@ jobs:
         body: MyReleaseMessage
 ```
 
-## Notes
+## Notes 📝
 
 The ``title`` input is the release name. 
 
@@ -47,7 +47,7 @@ The ``commit`` input is a commit hash or branch name to attach the release to (o
 
 The ``token`` input is the repository access token (optional), defaults to ```secrets.GITHUB_TOKEN```.
 
-## FAQ
+## FAQ 💬
 
   * ### Why do I get the error '*Resource not accessible by integration*'?
 
@@ -60,5 +60,5 @@ The ``token`` input is the repository access token (optional), defaults to ```se
       contents: write
     ```
     
-## Stars
+## Stars 🌟
 [![Stars](https://starchart.cc/action-pack/github-release.svg?variant=adaptive)](https://starchart.cc/action-pack/github-release)
