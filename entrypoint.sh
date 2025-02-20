@@ -20,7 +20,7 @@ if (( rc == 0 )); then
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
 
   # Workaround for https://github.com/cli/cli/issues/8458
-  while git fetch --tags --prune-tags; git tag -l | grep "$INPUT_TAG"; do
+  while git fetch --tags --prune-tags; git tag -l | grep -x "$INPUT_TAG"; do
     echo "Waiting for release $INPUT_TAG to be deleted.."
     sleep 3
   done
