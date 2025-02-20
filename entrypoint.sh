@@ -16,9 +16,14 @@ INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 { gh release view "$INPUT_TAG" >/dev/null 2>&1; rc=$?; } || :
 
 if (( rc == 0 )); then
-  echo "Release tag $INPUT_TAG does already exists, it will be replaced..."
+  echo "Release $INPUT_TAG does already exists, it will be deleted first..."
   gh release delete "$INPUT_TAG" --cleanup-tag --yes
-  sleep 3
+
+  # Workaround for https://github.com/cli/cli/issues/8458
+  while git fetch --tags --prune-tags; git tag -l | grep "$INPUT_TAG"; do
+    echo "Waiting for release $INPUT_TAG to be deleted.."
+    sleep 3
+  done
 fi
 
 if [ -z "$INPUT_COMMIT" ]; then
