@@ -61,4 +61,4 @@ The ``token`` input is the repository access token (optional), defaults to ```se
     ```
     
 ## Stars 🌟
-[![Stars](https://starchart.cc/action-pack/github-release.svg?variant=adaptive)](https://starchart.cc/action-pack/github-release)
+![Stargazers](https://raw.githubusercontent.com/star-stats/stars/refs/heads/data/charts/action-pack-github-release.svg)
