@@ -40,7 +40,7 @@ jobs:
           body: MyReleaseMessage
 ```
 
-# Notes 📝
+## Notes 📝
 
 If a release with the same tag already exists, it will be deleted first and recreated.
 
