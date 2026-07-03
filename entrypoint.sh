@@ -101,6 +101,8 @@ create_release() {
 
   if [ -z "$latest" ] || [ "${latest,,}" = "true" ]; then
     args+=(--latest)
+  else
+    args+=(--latest=false)
   fi
 
   log "Creating release $tag..."
