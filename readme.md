@@ -1,4 +1,4 @@
-<h1 align="center">Github Release<br />
+<h1 align="center">GitHub Release<br />
 <div align="center">
   
   [![Build](https://github.com/action-pack/github-release/workflows/Build/badge.svg)](https://github.com/action-pack/github-release/)
@@ -7,58 +7,69 @@
   
 </div></h1>
 
-Creates a Github release using a workflow action.
+Creates a GitHub release using a workflow action.
 
 ## Usage 🚀
 
 ```yaml
 name: Publish Release
+
 on:
   push:
     branches:
       - master
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
-  build:
+  release:
+    name: Publish Release
     runs-on: ubuntu-latest
+
     permissions:
       contents: write
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Create a release
-      uses: action-pack/github-release@v2
-      with:
-        tag: MyReleaseTag
-        title: MyReleaseTitle
-        body: MyReleaseMessage
+      - uses: actions/checkout@v4
+
+      - name: Create release
+        uses: action-pack/github-release@v2
+        with:
+          tag: MyReleaseTag
+          title: MyReleaseTitle
+          body: MyReleaseMessage
 ```
 
-## Notes 📝
+# Notes 📝
 
-The ``title`` input is the release name. 
+If a release with the same tag already exists, it will be deleted first and recreated.
 
-The ``body`` input is the release notes (optional).
+When no `body` input is provided, the action automatically generates release notes.
 
-The ``tag`` input is the tagname to be created for the release (optional).
+The created release is marked as the latest release by default. Set `latest` to `false` to disable this.
 
-The ``commit`` input is a commit hash or branch name to attach the release to (optional).
+The `tag` input is optional. When provided, it is used as the tag name for the release.
 
-The ``token`` input is the repository access token (optional), defaults to ```secrets.GITHUB_TOKEN```.
+The `commit` input is optional. It can be a commit hash or branch name to attach the release to.
 
 ## FAQ 💬
 
   * ### Why do I get the error '*Resource not accessible by integration*'?
 
-    This can happen if the ```Workflow permissions``` in your repository settings ( Actions -> General ) are not set to the ```Read and write``` option.
+    This can happen when the workflow does not have permission to create or update releases.
 
-    Either change that setting or otherwise add the following lines to your workflow job:
-    
+    Add the following permissions to your workflow job:
+
     ```yaml
     permissions:
       contents: write
     ```
-    
+
+    Alternatively, enable read and write workflow permissions in your repository settings under:
+
+    ```text
+    Settings -> Actions -> General -> Workflow permissions
+    ```
+
 ## Stars 🌟
 [![Stargazers](https://raw.githubusercontent.com/star-stats/stars/refs/heads/data/charts/action-pack-github-release.svg)](https://github.com/action-pack/github-release/stargazers)
