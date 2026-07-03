@@ -31,8 +31,8 @@ release_exists() {
 
 wait_for_tag_removal() {
   local tag="$1"
-  local timeout="${INPUT_DELETE_TIMEOUT:-120}"
   local elapsed=0
+  local timeout=120
   local local_exists
   local remote_exists
 
@@ -69,8 +69,6 @@ wait_for_tag_removal() {
 
 delete_release() {
   local tag="$1"
-  local timeout="${INPUT_DELETE_TIMEOUT:-120}"
-  local elapsed=0
 
   log "Release $tag already exists, deleting it first..."
   gh release delete "$tag" --cleanup-tag --yes
@@ -99,7 +97,7 @@ create_release() {
     args+=(--generate-notes)
   fi
 
-  latest="${INPUT_LATEST:-}"
+  local latest="${INPUT_LATEST:-}"
 
   if [ -z "$latest" ] || [ "${latest,,}" = "true" ]; then
     args+=(--latest)
